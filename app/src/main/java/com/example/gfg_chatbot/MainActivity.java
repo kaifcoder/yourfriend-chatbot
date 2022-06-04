@@ -83,14 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
         // below line we are creating a variable for our linear layout manager.
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false);
-
         // below line is to set layout
         // manager to our recycler view.
         chatsRV.setLayoutManager(linearLayoutManager);
 
+
         // below line we are setting
         // adapter to our recycler view.
         chatsRV.setAdapter(messageRVAdapter);
+
     }
 
     private void sendMessage(String userMsg) {
@@ -98,11 +99,12 @@ public class MainActivity extends AppCompatActivity {
         // array list which is entered by the user.
         messageModalArrayList.add(new MessageModal(userMsg, USER_KEY));
         messageRVAdapter.notifyDataSetChanged();
+        chatsRV.smoothScrollToPosition(messageRVAdapter.getItemCount() - 1);
 
         // url for our brain
         // make sure to add mshape for uid.
         // make sure to add your url.
-        String url = "http://api.brainshop.ai/get?bid=166976&key=zh8VLAxrIK1U17kn&uid=[mshape]&msg=" + userMsg;
+        String url = "http://api.brainshop.ai/get?bid=167000&key=hrFrTLQKXvRvmE4m&uid=[mshape]&msg=" + userMsg;
 
         // creating a variable for our request queue.
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
@@ -119,11 +121,13 @@ public class MainActivity extends AppCompatActivity {
 
                     // notifying our adapter as data changed.
                     messageRVAdapter.notifyDataSetChanged();
+                    chatsRV.smoothScrollToPosition(messageRVAdapter.getItemCount() - 1);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     // handling error response from bot.
                     messageModalArrayList.add(new MessageModal("No response", BOT_KEY));
                     messageRVAdapter.notifyDataSetChanged();
+                    chatsRV.smoothScrollToPosition(messageRVAdapter.getItemCount() - 1);
                 }
             }
         }, new Response.ErrorListener() {

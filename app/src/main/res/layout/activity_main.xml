@@ -25,22 +25,28 @@
         <!--edit text to enter message-->
         <EditText
             android:id="@+id/idEdtMessage"
+            android:background="@drawable/edit_text_border"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
             android:layout_weight="4"
-            android:hint="Enter Message" />
+            android:backgroundTint="@color/teal_200"
+            android:hint="Enter Message"
+            android:padding="15sp" />
 
         <!--button to send message-->
         <ImageButton
             android:id="@+id/idIBSend"
+
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="@color/purple_200"
+            android:background="@color/teal_200"
+            android:contentDescription="TODO"
+            android:elevation="1sp"
             android:src="@android:drawable/ic_menu_send"
             app:tint="@color/white"
-            android:contentDescription="TODO"
             tools:ignore="ContentDescription" />
 
     </LinearLayout>
