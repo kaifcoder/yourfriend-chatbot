@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         // url for our brain
         // make sure to add mshape for uid.
         // make sure to add your url.
-        String url = "http://api.brainshop.ai/get?bid=167000&key=hrFrTLQKXvRvmE4m&uid=[mshape]&msg=" + userMsg;
+        String url = "add your brainshop api url here" + userMsg;
 
         // creating a variable for our request queue.
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
